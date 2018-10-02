@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  inventory: one
+  cims_quantity: 
+  shopify_quantity: 
+  flow: 
+  adjustment: 
+
+two:
+  inventory: two
+  cims_quantity: 
+  shopify_quantity: 
+  flow: 
+  adjustment: 

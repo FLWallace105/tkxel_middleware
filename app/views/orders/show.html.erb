@@ -1,0 +1,75 @@
+<div class="content">
+  <div class="container-fluid">
+
+    <div class="row">
+
+      <div class="col-md-12 order-div">
+
+        <div class="card">
+          <div class="">
+            <div  class="" id="failures">
+              <div  class="active" id="all">
+                <div class="order-listing">
+                  <div class="order-heading">
+                    <div class="id">Order ID</div>
+                    <div class="source">Source</div>
+                    <div class="time">Last Sync</div>
+                    <div class="status">Status</div>
+                    <div class="order-action">Action</div>
+                  </div>
+                  <div class="order-detail">
+                    <div class="id"><%= @order.name %></div>
+                    <div class="source"><%= @order.log_trigger_type.titleize.capitalize %></div>
+                    <div class="time"><%= format_date_time(@order.log_last_sync.in_time_zone("Pacific Time (US & Canada)"))%> PTD </div>
+                    <div class="status"><%= order_status(@order.log_status.titleize.capitalize) %></div>
+                    <% if @enable_true %>
+                    <div class="order-action"><%= link_to '<button type="button" class="btn2 btn-success2"> SYNC</button>'.html_safe, sync_failed_order_to_cims_order_path(@order.id) %></div>
+                    <%else %>
+                        <div class="order-action">Synced to CIMS</div>
+                    <% end %>
+                  </div>
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default panel-timeline">
+      <!-- Default panel contents -->
+      <div class="panel-heading">TIMELINE</div>
+      <div class="panel-body">
+      </div>
+      <div class="time-line-parent">
+        <div class="time-line">
+        </div>
+      </div>
+      <!-- Table -->
+      <table  id ="table-timeline" class="table timeline">
+        <tbody>
+        <% @log_trails.each_with_index do |log_trail,index| %>
+        <tr>
+          <td class="td tm-td"><span class='<%= index == 0 ? "t-round active" : "t-round"%>' ></span> <%= "#{order_status(log_trail.status.titleize.capitalize)} By #{log_trail.trigger_type.titleize.capitalize}" %><p class="reason" title="<%= log_trail.description %>"><%= reason_of_order(log_trail) %></p> </td>
+          <td class="tm-time tm-td"><%= format_date_time(log_trail.created_at.in_time_zone("Pacific Time (US & Canada)")) %> PDT</td>
+        </tr>
+       <% end %>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<script>
+    $( document ).ready(function() {
+        if ($('table').attr('id') == 'table-timeline')
+        {
+            $(".time-line").css('height',document.getElementById('table-timeline').offsetHeight-5);
+        }
+
+    });
+</script>

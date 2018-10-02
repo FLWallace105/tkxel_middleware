@@ -1,0 +1,72 @@
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <%= form_for @brand do |form| %>
+        <div class="row">
+          <div class="col-lg-8">
+            <h3>Products</h3>
+          </div>
+          <div class="col-lg-4 submit-div">
+              <button type="submit" class="btn2 btn-success2 add-btn">Submit</button>
+          </div>
+        </div>
+        <div id='products'>
+          <div class="row">
+            <%= form.fields_for :products do |product| %>
+              <% if product.object.id.nil? %>
+                <%= render 'product_fields', :f => product %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="row ">
+            <div class='links'>
+              <div class="add-product-btn">
+                <%= link_to_add_association'
+                    <button class="button-add btn2 btn-success2" style="width:auto;" type="button">+Add
+                    </button>'
+                .html_safe, form, :products %>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+    <hr>
+    <div class="row">
+
+      <div class="col-md-12 user-div">
+        <div class="card">
+
+          <div class="">
+            <div role="" class="" id="all">
+              <div class="product-listing">
+                <div class="product-heading">
+                  <div class="date">Product Name</div>
+                  <div class="date">Month</div>
+                  <div class="product">Product id</div>
+                  <div class="default">Default</div>
+                  <div class="default">Action</div>
+
+                </div>
+
+                <% @products.each do |product| %>
+                    <div class="product-detail">
+                      <div class="default"><%= product.product_title %></div>
+                      <div class="date"><%= product.product_date.strftime("%B") %></div>
+                      <div class="product"><%= product.product_id %></div>
+                      <div class="default"><%= product.is_default ? "✓" : "☓" %></div>
+                      <div class="default"><%= link_to 'Remove',  product,  method: :delete, data: { confirm: 'Are you sure?' } %></div>
+                    </div>
+                <% end %>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

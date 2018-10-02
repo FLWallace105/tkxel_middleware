@@ -1,0 +1,199 @@
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <!--<div class="col-md-8 pull-left">-->
+        <!--<input type="text" id="" placeholder="Search" class="search-order">-->
+      <!--</div>-->
+      <div class="col-md-4 align-filter pull-right">
+        <div class="dropdown">
+          <button class="btn filter-btn dropdown-toggle" type="button" data-toggle="dropdown">FILTERS
+            <img class="drp-arrow-down active" src="<%= asset_path 'dropdown-arrow.png' %>">
+            <img class="drp-arrow-up" src="<%= asset_path 'dropdown_arrow_close.png' %>"></button>
+
+          <div class="container dropdown-menu filter-row">
+            <div class="row">
+              <div class="dropdown-main-div">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <%= form_tag('/orders', {:method => :get}) do %>
+                      <div class="row">
+                        <span><h4 class="filter-heading">DATE</h4> </span>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="form-group dropdown-input">
+                            <label>From</label>
+                             <%= text_field_tag 'from_date', @from_date, class: 'datetimepicker form-control input-sm' %>
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="form-group dropdown-input">
+                            <label>To</label>
+                            <%= text_field_tag 'to_date', @to_date, class: 'datetimepicker form-control input-sm' %>
+                          </div>
+                        </div>
+                      </div>
+                      <!--<hr>-->
+                      <!--<div class="row">-->
+                        <!--<span><h4 class="filter-heading">Source</h4> </span>-->
+                        <!--<div class="col-xs-6 col-sm-6 col-md-6">-->
+                          <!--<div class="checkbox checkbox-warning" id="remember">-->
+                            <!--<input id="" type="checkbox" checked="">-->
+                            <!--<%#= check_box_tag 'source_webhook', 'webhook', (@trigger_types.present? && @trigger_types.include?('webhook'))  %>-->
+                            <!--<label class="remember" for="remember_me">-->
+                              <!--WebHook-->
+                            <!--</label>-->
+                          <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-6 col-sm-6 col-md-6">-->
+                          <!--<div class="checkbox checkbox-warning" id="remember">-->
+                            <%#= check_box_tag 'source_background_job',
+                                              'cron_job', (@trigger_types.present? && @trigger_types.include?('cron_job'))  %>
+                            <!--<label class="remember" for="remember_me">-->
+                              <!--Cron Job-->
+                            <!--</label>-->
+                          <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-6 col-sm-6 col-md-6">-->
+                          <!--<div class="checkbox checkbox-warning" id="remember">-->
+                            <%#= check_box_tag 'source_manual_sync',
+                                              'cims_manual_sync' , (@trigger_types.present? && @trigger_types.include?('cims_manual_sync')) %>
+                            <!--<label class="remember" for="remember_me">-->
+                              <!--Manual Sync-->
+                            <!--</label>-->
+                          <!--</div>-->
+                        <!--</div>-->
+                      <!--</div>-->
+                      <hr>
+                      <div class="row">
+                        <span ><h4 class="filter-heading">Status</h4> </span>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="checkbox checkbox-warning" id="remember">
+                            <%= check_box_tag 'status_pushed_to_cims',
+                                              'pushed_to_cims', (@statuses.present? && @statuses.include?('pushed_to_cims')) %>
+                            <label class="remember" for="remember_me">
+                              Pushed To CIMS
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="checkbox checkbox-warning" id="remember">
+                            <%= check_box_tag 'status_partially_fulfilled', 'partially_fulfilled', (@statuses.present? && @statuses.include?('partially_fulfilled') ) %>
+                            <label class="remember" for="remember_me">
+                              Partially Fulfilled
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="checkbox checkbox-warning" id="remember">
+                            <%= check_box_tag 'status_fulfilled', 'fulfilled', (@statuses.present? && @statuses.include?('fulfilled') ) %>
+                            <label class="remember" for="remember_me">
+                              Fulfilled
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row filter-btn-div">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <%= submit_tag "Apply" ,class: "btn filter-btn-apply",   data: { disable_with: "Please wait..." } %>
+
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 reset-btn-div">
+                          <a class="reset-btn" href=<%= orders_path %> > Reset</a>
+                        </div>
+                      </div>
+
+                    <%end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--              <ul class="dropdown-menu">
+                          <li><a href="#">HTML</a></li>
+                          <li><a href="#">CSS</a></li>
+                          <li><a href="#">JavaScript</a></li>
+                        </ul>-->
+        </div>
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-md-12 order-div">
+        <!-- Nav tabs -->
+        <div class="card">
+          <ul class="nav nav-tabs" role="tablist">
+            <li id="all-li" role="presentation" class="active order-tab">
+              <a class="tabs" href="#all" aria-controls="all" role="tab" data-toggle="tab">All</a></li>
+            <li id="failure-li" role="presentation">
+              <a class="tabs" href="#failures" aria-controls="failures" role="tab" data-toggle="tab">Failures</a></li>
+            <li class="sync-table">
+              <%= link_to(sync_failed_orders_to_cims_orders_path,{class: 'sync'}) do %>
+                  <img src="<%= asset_path 'Reload-icon.png' %>">
+              <% end %>
+            </li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="all">
+              <div class="order-listing">
+                <div class="order-heading">
+                  <div class="id">Pick Ticket</div>
+                  <div class="id">Order Name</div>
+                  <div class="time">Created at</div>
+                  <div class="time">Customer</div>
+                  <div class="brand">Brand</div>
+                  <div class="status">Status</div>
+                </div>
+                <% @orders.each do |order| %>
+
+                    <div class="order-detail">
+                      <div class="id"><%= link_to order.tracking_id, order %></div>
+                      <div class="id"><%= link_to order.name, order %></div>
+                      <div class="time"><%= format_date_time_list(DateTime.parse(order.details['created_at'])) %></div>
+                      <div class="time"><%= order.customer_name %></div>
+                      <div class="brand"><%= order.brand.name %></div>
+                      <div class="status"><%= order_status(order.log_status.titleize.capitalize)%></div>
+                    </div>
+
+                <% end %>
+              </div>
+              <div class="pagination-div">
+              <%= will_paginate @orders, :param_name => 'success_page' %>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="failures">
+              <div role="tabpanel" class="tab-pane active">
+                <div class="order-listing">
+                  <div class="order-heading">
+                    <div class="id">Pick Ticket</div>
+                    <div class="id">Order Name</div>
+                    <div class="time">Created at</div>
+                    <div class="time">Customer</div>
+                    <div class="brand">Brand</div>
+                    <div class="status">Status</div>
+                  </div>
+                  <% @fail_orders.each do |order| %>
+
+                      <div class="order-detail">
+                        <div class="id"><%= link_to order.tracking_id, order   %></div>
+                        <div class="id"><%= link_to order.name, order   %></div>
+                        <div class="time"><%= format_date_time_list(DateTime.parse(order.details['created_at'])) %></div>
+                        <div class="time"><%= order.customer_name %></div>
+                        <div class="brand"><%= order.brand.name %></div>
+                        <div class="status"><%= order_status(order.log_status.titleize.capitalize)%></div>
+                      </div>
+
+                  <% end %>
+                </div>
+                <div class="pagination-div">
+                <%= will_paginate @fail_orders, :param_name => 'failure_page' %>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

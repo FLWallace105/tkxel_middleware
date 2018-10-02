@@ -1,0 +1,45 @@
+<nav class="navbar navbar-default navbar-upper">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar bar1"></span>
+        <span class="icon-bar bar2"></span>
+        <span class="icon-bar bar3"></span>
+      </button>
+      <a class="navbar-brand" href="#"><%= heading(controller_name)  %></a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right upper-navbar dashboard-nav">
+        <li>
+          <% if has_multiple_brands(current_user) %>
+              <%= form_tag(brand_session_setting_path, {:method => :post}) do %>
+                  <%= select_tag :sel1 , options_for_select(brands_options_for_select(current_user),session[:selected_brand].to_s),{:class => 'form-control'}%>
+              <% end %>
+        <% elsif has_single_brand(current_user)  %>
+              <div class="single-brand-name"><%= single_brand_name(current_user) %></div>
+          <% end %>
+        </li>
+        <!--<li class="dropdown notification-bell">-->
+          <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">-->
+            <!--<img class="sidebar-icon" src="<%= asset_path 'notification.png' %>">-->
+            <!--<p class="notification">5</p>-->
+          <!--</a>-->
+          <!--<ul class="dropdown-menu">-->
+            <!--<li><a href="#">Notification 1</a></li>-->
+            <!--<li><a href="#">Notification 2</a></li>-->
+            <!--<li><a href="#">Notification 3</a></li>-->
+            <!--<li><a href="#">Notification 4</a></li>-->
+            <!--<li><a href="#">Another notification</a></li>-->
+          <!--</ul>-->
+        <!--</li>-->
+        <li class="logout">
+          <%= link_to(destroy_user_session_path, method: :delete) do %>
+              <img class="sidebar-icon" src="<%= asset_path 'logout.png' %>">
+          <% end %>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>

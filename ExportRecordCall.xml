@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <ExportRecord xmlns="http://webservices.foxfireindia.com/interface">
+      <ExportBatch>0</ExportBatch>
+      <IntegrationType />
+      <TransType />
+      <Ownership />
+      <SourceSystem />
+      <BusinessUnit>FB</BusinessUnit>
+      <UserId />
+      <XmlData>
+          <msg>
+            <msgHeader>
+              <schemaName>cIMS_ExportRecords</schemaName>
+              <schemaVersion>V1.0</schemaVersion>
+              <msgSubject>ExportRecords</msgSubject>
+              <msgAttribute>Export</msgAttribute>
+              <msgType>Export</msgType>
+              <msgFrom>CIMS</msgFrom>
+              <CompanyId>CIMS</CompanyId>
+              <msgGUID>CIMS</msgGUID>
+              <SourceSystem>Marika</SourceSystem>
+              <SecurityKey>
+              </SecurityKey>
+            </msgHeader>
+          </msg>
+      </XmlData>
+    </ExportRecord>
+  </soap:Body>
+</soap:Envelope>

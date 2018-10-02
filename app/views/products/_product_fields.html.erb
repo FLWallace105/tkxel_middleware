@@ -1,0 +1,28 @@
+<div class="row nested-fields">
+    <div class="field col-md-3 padding-right-cruser">
+      <div class="form-group date-select">
+        <label for="year" class="label-date">Date:</label>
+        <%= f.date_select :product_date ,{discard_day: true} ,{:class=>"date-time"} %>
+      </div>
+    </div>
+    <div class="field form-group col-md-3 padding-cruser adjust-Id-field">
+      <label for="product">ID:</label>
+      <div class="">
+        <%= f.text_field :product_id ,:class=>"form-control"%>
+      </div>
+    </div>
+    <div class="field col-md-2">
+      <div class="checkbox checkbox-warning default-checkbox" id="remember">
+        <%= f.check_box :is_default %>
+        <label class="remember" for="remember_me">
+          Default
+        </label>
+      </div>
+    </div>
+    <div class=" col-md-2 padding-cruser">
+        <%= link_to_remove_association '<div class="col-md-1 add-product-btn">
+                    <button class="btn2 btn-danger" style="width:auto;" type="button">Remove
+                    </button>
+                  </div>'.html_safe, f %>
+    </div>
+</div>

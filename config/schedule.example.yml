@@ -1,0 +1,14 @@
+marika_order_job:
+  cron: "0 * * * *" # execute at every hour
+  class: "OrderWorker"
+  args: ["marikastaging"]
+
+zobha_order_job:
+  cron: "0 * * * *" # execute at every hour
+  class: "OrderWorker"
+  args: ["zobhastaging"]
+
+ellie_order_job:
+  cron: "0 * * * *" # execute at every hour
+  class: "OrderWorker"
+  args: ["elliestaging"]

@@ -1,0 +1,5 @@
+#to save background job log into sidekiq.log
+:verbose: true
+:pidfile: ./tmp/pids/sidekiq.pid
+:logfile: ./log/sidekiq.log
+:concurrency:  25

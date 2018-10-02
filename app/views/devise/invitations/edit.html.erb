@@ -1,0 +1,31 @@
+<div class="container bg-1 text-center landing " xmlns="http://www.w3.org/1999/html">
+  <div class="background-div">
+    <div class="logo-container">
+      <div class="">
+        <div class="card card-container">
+          <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+          <img id="logo-img" class="logo-img-card" src="<%= asset_path 'logo.png' %>"/>
+          <p id="logo-name" class="logo-name-card">SET YOUR PASSWORD</p>
+          <% if flash[:alert].present? || resource.errors.present? %>
+              <div class="alert alert-danger">
+                <strong>Alert!</strong> <%= resource.errors.full_messages.join(',') %>
+              </div>
+          <% end %>
+          <%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put , class: "form-signin" } do |f| %>
+              <%= f.hidden_field :invitation_token, readonly: true %>
+              <% if f.object.class.require_password_on_accepting %>
+                  <span id="reauth-email" class="reauth-email"></span>
+                  <label>Password </label>
+                    <%= f.password_field :password , class: "login-field form-control" ,  placeholder:"" ,  required: true, autofocus:true %>
+                  <label>Confirm Password </label>
+                    <%= f.password_field :password_confirmation , class: "login-field form-control" ,  placeholder:"" ,  required: true, autofocus:true  %>
+              <% end %>
+              <%= f.submit t("devise.invitations.edit.submit_button") , class: 'btn btn-lg btn-primary btn-block btn-signin'  %>
+          <% end %><!-- /form -->
+        </div><!-- /card-container -->
+      </div><!-- /container -->
+    </div>
+    <span class="footer-text">Powered by Fam Brands</span>
+  </div>
+
+</div>

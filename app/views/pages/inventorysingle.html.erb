@@ -1,0 +1,92 @@
+
+
+    <div class="content">
+      <div class="container-fluid">
+
+        <div class="row">
+
+          <div class="col-md-12 order-div">
+
+            <div class="card">
+              <div class="">
+                <div  class="" id="failures">
+                  <div  class="active" id="all">
+                    <div class="inventory-listing">
+                      <div class="inventory-heading">
+                        <div class="from">From-To</div>
+                        <div class="brand">Brand</div>
+                        <div class="shopify">Shopify Count</div>
+                        <div class="cims">Cims Count</div>
+                        <div class="adjustment">Adjustments(%)</div>
+                        <div class="last-update">Last Updated</div>
+                        <div class="inventory-action">Action</div>
+                      </div>
+
+
+                      </div>
+                    <div class="inventory-detail">
+                      <div class="from">
+                        <img class="" src="<%= asset_path 'CIMS.png' %>">
+                        <img class="arrow" src="<%= asset_path 'arrow.png' %>">
+                        <img class="" src="<%= asset_path 'shopify.png' %>">
+                      </div>
+                      <div class="brand">Ellie</div>
+                      <div class="shopify">50</div>
+                      <div class="cims">50</div>
+                      <div class="adjustment red">+5</div>
+                      <div class="last-update">18:00</div>
+                      <div class="inventory-action"><button type="button" class="btn2 btn-success2">SYNC</button></div>
+                    </div>
+
+
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="panel panel-default panel-timeline">
+          <!-- Default panel contents -->
+          <div class="panel-heading">TIMELINE</div>
+          <div class="panel-body">
+            <p class="order-today">TODAY</p>
+          </div>
+          <div class="time-line-parent">
+            <div class="time-line">
+            </div>
+          </div>
+
+          <!-- Table -->
+          <table id="table-timeline" class="table timeline">
+            <tbody>
+            <tr>
+              <td class="td tm-td"><span class="t-round active"></span> Inventory update failed for CIMS (25) to Shopify
+                (20)
+              </td>
+              <td class="tm-time tm-td">9:32PM PDT</td>
+            </tr>
+            <tr>
+              <td class="td tm-td"><span class="t-round"></span>Inventory update succeed from Shopify to CIMS</td>
+              <td class="tm-time tm-td">9:32PM PDT</td>
+            </tr>
+            <tr>
+              <td class="td tm-td"><span class="t-round"></span>Inventory update failed (Adjustment increased from 10%)
+              </td>
+              <td class="tm-time tm-td">9:32PM PDT</td>
+            </tr>
+            </tbody>
+
+          </table>
+        </div>
+        </div>
+
+
+
+
+
+      </div>
+    </div>
+
+
+

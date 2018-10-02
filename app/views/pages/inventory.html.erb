@@ -1,0 +1,248 @@
+
+
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8 pull-left">
+        <input type="text" id="" placeholder="Search" class="search-order">
+      </div>
+      <div class="col-md-4 align-filter">
+        <div class="dropdown">
+          <button class="btn filter-btn dropdown-toggle" type="button" data-toggle="dropdown">FILTERS
+            <img class="drp-arrow-down active" src="<%= asset_path 'dropdown-arrow.png' %>">
+          <img class="drp-arrow-up" src="<%= asset_path 'dropdown_arrow_close.png' %>">
+          </button>
+          <div class="container dropdown-menu filter-row">
+            <div class="row">
+              <div class="dropdown-main-div">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <form role="form">
+                      <div class="row">
+                        <span><h4 class="filter-heading">DATE</h4> </span>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="form-group dropdown-input">
+                            <label>From</label>
+                            <input type="text" name="" id="" class="datetimepicker form-control input-sm" placeholder="">
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="form-group dropdown-input">
+                            <label>To</label>
+                            <input type="text" name="" id="" class="datetimepicker form-control input-sm" placeholder="">
+                          </div>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <span><h4 class="filter-heading">Source</h4> </span>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="checkbox checkbox-warning" id="remember">
+                            <input id="" type="checkbox" checked="">
+                            <label class="remember" for="remember_me">
+                              WebHook
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="checkbox checkbox-warning" id="remember">
+                            <input id="" type="checkbox" checked="">
+                            <label class="remember" for="remember_me">
+                              BackgrounJob
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="checkbox checkbox-warning" id="remember">
+                            <input id="" type="checkbox" checked="">
+                            <label class="remember" for="remember_me">
+                              Manual
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <span ><h4 class="filter-heading">Status</h4> </span>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="checkbox checkbox-warning" id="remember">
+                            <input id="" type="checkbox" checked="">
+                            <label class="remember" for="remember_me">
+                              Fullfilled
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="checkbox checkbox-warning" id="remember">
+                            <input id="" type="checkbox" checked="">
+                            <label class="remember" for="remember_me">
+                              Pushed To CMS
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row filter-btn-div">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <input type="submit" class="btn filter-btn-apply" value="Apply" type="button" >
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 reset-btn-div">
+                          <a class="reset-btn" href="">Reset</a>
+                        </div>
+                      </div>
+
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-md-12 order-div">
+        <!-- Nav tabs -->
+        <div class="card">
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active order-tab">
+              <a class="tabs" href="#all" aria-controls="all" role="tab" data-toggle="tab">All</a></li>
+            <li role="presentation">
+              <a class="tabs" href="#failures" aria-controls="failures" role="tab" data-toggle="tab">Failures</a></li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="all">
+              <div class="inventory-listing">
+                <div class="inventory-heading">
+                  <div class="product-id">Product ID</div>
+                  <div class="from">From-To</div>
+                  <div class="brand">Brand</div>
+                  <div class="shopify">Shopify Count</div>
+                  <div class="cims">Cims Count</div>
+                  <div class="adjustment">Adjustments(%)</div>
+                  <div class="last-update">Last Updated</div>
+                </div>
+
+                <div class="inventory-detail">
+                  <div class="product-id">8974521</div>
+                  <div class="from">     <img class="" src="<%= asset_path 'shopify.png' %>">
+                    <img class="arrow" src="<%= asset_path 'arrow.png' %>">
+                    <img class="" src="<%= asset_path 'CIMS.png' %>"></div>
+                  <div class="brand">Ellie</div>
+                  <div class="shopify">50</div>
+                  <div class="cims">50</div>
+                  <div class="adjustment">+5</div>
+                  <div class="last-update">18:00</div>
+                </div>
+                <div class="inventory-detail">
+                  <div class="product-id">8974521</div>
+                  <div class="from">     <img class="" src="<%= asset_path 'shopify.png' %>">
+                    <img class="arrow" src="<%= asset_path 'arrow.png' %>">
+                    <img class="" src="<%= asset_path 'CIMS.png' %>"></div>
+                  <div class="brand">Ellie</div>
+                  <div class="shopify">50</div>
+                  <div class="cims">50</div>
+                  <div class="adjustment">+5</div>
+                  <div class="last-update">18:00</div>
+                </div>
+                <div class="inventory-detail">
+                  <div class="product-id">8974521</div>
+                  <div class="from"><img class="" src="<%= asset_path 'shopify.png' %>">
+                    <img class="arrow" src="<%= asset_path 'arrow.png' %>">
+                    <img class="" src="<%= asset_path 'CIMS.png' %>"></div>
+                  <div class="brand">Ellie</div>
+                  <div class="shopify">50</div>
+                  <div class="cims">50</div>
+                  <div class="adjustment">+5</div>
+                  <div class="last-update">18:00</div>
+                </div>
+                <div class="inventory-detail">
+                  <div class="product-id">8974521</div>
+                  <div class="from"><img class="" src="<%= asset_path 'shopify.png' %>">
+                    <img class="arrow" src="<%= asset_path 'arrow.png' %>">
+                    <img class="" src="<%= asset_path 'CIMS.png' %>"></div>
+                  <div class="brand">Ellie</div>
+                  <div class="shopify">50</div>
+                  <div class="cims">50</div>
+                  <div class="adjustment">+5</div>
+                  <div class="last-update">18:00</div>
+                </div>
+                <div class="inventory-detail">
+                  <div class="product-id">8974521</div>
+                  <div class="from">
+                    <img class="" src="<%= asset_path 'CIMS.png' %>">
+                    <img class="arrow" src="<%= asset_path 'arrow.png' %>">
+                  <img class="" src="<%= asset_path 'shopify.png' %>">
+                  </div>
+                  <div class="brand">Ellie</div>
+                  <div class="shopify">50</div>
+                  <div class="cims">50</div>
+                  <div class="adjustment">+5</div>
+                  <div class="last-update">18:00</div>
+                </div>
+                <div class="inventory-detail">
+                  <div class="product-id">8974521</div>
+                  <div class="from"><img class="" src="<%= asset_path 'shopify.png' %>">
+                    <img class="arrow" src="<%= asset_path 'arrow.png' %>">
+                    <img class="" src="<%= asset_path 'CIMS.png' %>"></div>
+                  <div class="brand">Ellie</div>
+                  <div class="shopify">50</div>
+                  <div class="cims">50</div>
+                  <div class="adjustment">+5</div>
+                  <div class="last-update">18:00</div>
+                </div>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="failures">
+              <div role="tabpanel" class="tab-pane active" id="all">
+                <div class="inventory-listing">
+                  <div class="inventory-heading">
+                    <div class="product-id">Product ID</div>
+                    <div class="from">From-To</div>
+                    <div class="brand">Brand</div>
+                    <div class="shopify">Shopify Count</div>
+                    <div class="cims">Cims Count</div>
+                    <div class="adjustment">Adjustments(%)</div>
+                    <div class="last-update">Last Updated</div>
+                  </div>
+
+                  <div class="inventory-detail">
+                    <div class="product-id">8974521</div>
+                    <div class="from">
+                      <img class="" src="<%= asset_path 'CIMS.png' %>">
+                      <img class="arrow" src="<%= asset_path 'arrow.png' %>">
+                      <img class="" src="<%= asset_path 'shopify.png' %>">
+                    </div>
+                    <div class="brand">Ellie</div>
+                    <div class="shopify">50</div>
+                    <div class="cims">50</div>
+                    <div class="adjustment red">+5</div>
+                    <div class="last-update">18:00</div>
+                  </div>
+                  <div class="inventory-detail">
+                    <div class="product-id">8974521</div>
+                    <div class="from"><img class="" src="<%= asset_path 'shopify.png' %>">
+                      <img class="arrow" src="<%= asset_path 'arrow.png' %>">
+                      <img class="" src="<%= asset_path 'CIMS.png' %>"></div>
+                    <div class="brand">Ellie</div>
+                    <div class="shopify">50</div>
+                    <div class="cims">50</div>
+                    <div class="adjustment red">+5</div>
+                    <div class="last-update">18:00</div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

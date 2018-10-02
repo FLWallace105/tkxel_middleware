@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @reserve_inventory.product_id %>
+</p>
+
+<p>
+  <strong>Brand:</strong>
+  <%= @reserve_inventory.brand %>
+</p>
+
+<p>
+  <strong>Style:</strong>
+  <%= @reserve_inventory.style_id %>
+</p>
+
+<%= link_to 'Edit', edit_reserveInventory_path(@reserve_inventory) %> |
+<%= link_to 'Back', reserve_inventories_path %>

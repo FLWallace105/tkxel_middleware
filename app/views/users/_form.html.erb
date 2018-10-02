@@ -1,0 +1,34 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+  </div>
+
+  <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+  </div>
+
+  <% all_brands.each_with_index do |brand,index| %>
+  <div class="fields" >
+      <input type="checkbox" name=<%= "user[user_brands_attributes][#{index}][brand_id]" %> value=<%= brand.id %> <%= 'checked' if user.has_brand?(brand.id) %> >
+     <%= brand.name %>
+  </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

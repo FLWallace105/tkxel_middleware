@@ -1,0 +1,81 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:int="http://webservices.foxfireindia.com/interface">
+  <soap:Header/>
+  <soap:Body>
+    <int:ImportRecords>
+      <int:xmlData>
+        <msg>
+          <msgHeader>
+            <schemaName>cIMS_ImportOrderHeaders</schemaName>
+            <schemaVersion>V1.1</schemaVersion>
+            <msgSubject>CIMS_ImportOrderHeaders</msgSubject>
+            <msgAttribute>Import</msgAttribute>
+            <msgType>Import</msgType>
+            <msgFrom>CIMS</msgFrom>
+            <companyId>CIMS</companyId>
+            <msgGUID>CIMS</msgGUID>
+            <timeStamp>2018-05-22-15.29.13</timeStamp>
+          </msgHeader>
+          <msgBody>
+            <Record>
+              <RecordType>OH</RecordType>
+              <Action>I</Action>
+              <PickTicket>490034659421</PickTicket>
+              <SalesOrder>490034659421</SalesOrder>
+              <CustSKU></CustSKU>
+              <OrderType>N</OrderType>
+              <OrderDate>05/21/2018</OrderDate>
+              <DesiredShipDate></DesiredShipDate>
+              <CancelDate></CancelDate>
+              <Priority></Priority>
+              <SoldToId>606997774428</SoldToId>
+              <SoldToName>waqas zafar</SoldToName>
+              <SoldToAddressLine1>ferferfreverv fbrbrbrb</SoldToAddressLine1>
+              <SoldToCity>lahore</SoldToCity>
+              <SoldToState>lahore</SoldToState>
+              <SoldToCountry>United States</SoldToCountry>
+              <SoldToZip>96701</SoldToZip>
+              <ShipToName>waqas zafar</ShipToName>
+              <ShipToAddressLine1>ferferfreverv fbrbrbrb</ShipToAddressLine1>
+              <ShipToCity>lahore</ShipToCity>
+              <ShipToState>Hawaii</ShipToState>
+              <ShipToCountry>United States</ShipToCountry>
+              <ShipToZip>96701</ShipToZip>
+              <ShipVia>SIN</ShipVia>
+              <ShipToStore>39</ShipToStore>
+              <TotalSalesAmount>39.95</TotalSalesAmount>
+              <FreightTerms>Sender</FreightTerms>
+              <BillToAccount>United States</BillToAccount>
+              <BillToAddressName>waqas zafar</BillToAddressName>
+              <BillToAddressLine1>ferferfreverv fbrbrbrb</BillToAddressLine1>
+              <BillToAddressCity>lahore</BillToAddressCity>
+              <BillToAddressState>Hawaii</BillToAddressState>
+              <BillToAddressCountry>United States</BillToAddressCountry>
+              <BillToAddressZip>96701</BillToAddressZip>
+              <SourceSystem>Marika</SourceSystem>
+              <Ownership>FB</Ownership>
+              <Warehouse>03</Warehouse>
+              <UDF4>L3092</UDF4>
+              <UDF5>D</UDF5>
+              <UDF6>60 DAYS NET</UDF6>
+              <BusinessUnit>FB</BusinessUnit>
+              <CreatedBy>FCASTRO</CreatedBy>
+            </Record>
+            <Record>
+              <RecordType>OD</RecordType>
+              <Action>I</Action>
+              <PickTicket>490034659421</PickTicket>
+              <HostOrderLine>1</HostOrderLine>
+              <SKU>722457407767</SKU>
+              <UnitsOrdered>1</UnitsOrdered>
+              <UnitsAuthorizedToShip>1</UnitsAuthorizedToShip>
+              <UnitSalePrice>39.95</UnitSalePrice>
+              <UDF2>L3092</UDF2>
+              <BusinessUnit>FB</BusinessUnit>
+              <CreatedBy>FCASTRO</CreatedBy>
+            </Record>
+          </msgBody>
+        </msg>
+      </int:xmlData>
+    </int:ImportRecords>
+  </soap:Body>
+</soap:Envelope>

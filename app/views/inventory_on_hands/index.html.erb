@@ -1,0 +1,49 @@
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6 align-filter pull-right">
+        <div class="dropdown">
+          <%= link_to '<button type="button" class="btn2 btn-success2 add-btn sync-btn">Sync Inventory</button>'.html_safe, sync_inventory_on_hands_path %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-md-12 user-div">
+        <div class="card">
+
+          <div class="">
+            <div role="" class="" id="all">
+              <div class="inv2-listing">
+                <div class="inv2-heading">
+                  <div class="inv2-sku">SKU</div>
+                  <div class="inv2-brand">Brand</div>
+                  <div class="inv2-adj">Threshold %</div>
+                  <div class="action">Status</div>
+                  <div class="action">Date</div>
+                </div>
+                <% @inventories.each do |inventory| %>
+                    <div class="inv2-detail">
+                      <div class="inv2-sku"><%= inventory.sku %></div>
+                      <div class="inv2-brand"><%= inventory.brand_name %></div>
+                      <div class="inv2-adj"><%= inventory_percentage(inventory) %></div>
+                      <div class="action">
+                        <%= inventory.status %>
+                      </div>
+                      <div class="action">
+                        <%= format_date_time_list(inventory.created_at) %>
+                      </div>
+                    </div>
+                <% end %>
+              </div>
+              <div class="pagination-div">
+                <%= will_paginate @inventories %>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

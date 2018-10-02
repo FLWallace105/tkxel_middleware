@@ -1,0 +1,69 @@
+<div class="sidebar" data-background-color="white" data-active-color="danger">
+
+  <!--
+      Tip 1: you can change the color of the sidebar's background using: data-background-color="white | black"
+      Tip 2: you can change the color of the active button using the data-active-color="primary | info | success | warning | danger"
+  -->
+
+  <div class="sidebar-wrapper">
+    <div class="logo">
+      <a href="<%=root_path%>" class="simple-text">
+        <img class="logo-img" src="<%= asset_path 'logo.png' %>">
+      </a>
+    </div>
+    <div class="admin-div">
+      <a href="<%=root_path%>" class="simple-text">
+        <img class="admin-img" src="<%= asset_path 'placeholder.png' %>">
+        <p class="admin-name"><%= current_user.name %></p>
+        <p class="admin-role"><%= 'Admin' if admin_access(current_user)%> </p>
+      </a>
+      <span class="online"></span>
+    </div>
+    <ul class="nav">
+    <li class = <%= 'active' if controller_name == 'dashboard' %>>
+      <%= link_to(root_path) do %>
+        <img class="sidebar-icon" src="<%= asset_path 'dashboard.png' %>">
+          <img class="sidebar-icon-active" src="<%= asset_path 'dashboard-selected.png' %>">
+          <p>Dashboard</p>
+      <% end %>
+    </li>
+      <li class=<%= 'active' if controller_name == 'orders' %> >
+        <%= link_to(orders_path) do %>
+            <img class="sidebar-icon" src="<%= asset_path 'orders.png' %>">
+            <img class="sidebar-icon-active" src="<%= asset_path 'order-selected.png' %>">
+            <p>Orders</p>
+        <% end %>
+      </li>
+      <li class ="menu-item-has-children <%= 'active' if controller_name == 'inventory_on_hands' %> ">
+        <%= link_to(inventory_on_hands_path) do %>
+            <img class="sidebar-icon" src="<%= asset_path 'inventory.png' %>">
+            <img class="sidebar-icon-active" src="<%= asset_path 'inventory-selected.png' %>">
+            <p>Failed Inventory</p>
+        <% end %>
+      </li>
+      <li class ="menu-item-has-children <%= 'active' if controller_name == 'reserve_inventories' %> ">
+        <%= link_to(reserve_inventories_path) do %>
+          <img class="sidebar-icon" src="<%= asset_path 'inventory.png' %>">
+          <img class="sidebar-icon-active" src="<%= asset_path 'inventory-selected.png' %>">
+          <p>Reserve Inventory</p>
+        <% end %>
+      </li>
+      <li class ="menu-item-has-children <%= 'active' if controller_name == 'fulfillments' %> ">
+        <%= link_to(fulfillments_path) do %>
+            <img class="sidebar-icon" src="<%= asset_path 'orders.png' %>">
+            <img class="sidebar-icon-active" src="<%= asset_path 'order-selected.png' %>">
+            <p>Failed Fulfillments</p>
+        <% end %>
+      </li>
+      <% if admin_access(current_user) %>
+      <li class = <%= 'active' if controller_name == 'users' %> >
+        <%= link_to(users_path) do %>
+            <img class="sidebar-icon" src="<%= asset_path 'user-management.png' %>">
+            <img class="sidebar-icon-active" src="<%= asset_path 'user-management-selected.png' %>">
+            <p>User Management</p>
+        <% end %>
+      </li>
+        <% end %>
+    </ul>
+  </div>
+</div>

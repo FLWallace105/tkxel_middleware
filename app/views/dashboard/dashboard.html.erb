@@ -1,0 +1,97 @@
+
+<div class="content">
+  <div class="container-fluid">
+    <div class="row welcome-row">
+      <div class="col-md-6 pull-left">
+        <p class="welcome-txt">Welcome <%= current_user.name %></p>
+        <p class="last-sync">Last Synced: <span class="sync-time"><%= time_ago_in_words(@last_sync) %> ago</span></p>
+      </div>
+    </div>
+    <div class="row dashboard-row">
+      <div class="col-xs-12 col-sm-12 col-md-4">
+        <%= link_to(orders_path) do %>
+            <div class="dash-box order-box">
+              <div class="">
+                <img src="<%= asset_path 'order-card.png' %>">
+                <span class="box-head">Orders</span>
+              </div>
+        <% end %>
+        <div class="refresh-sign">
+          <%= link_to(sync_failed_orders_to_cims_orders_path) do %>
+              <img src="<%= asset_path 'sync.png' %>">
+          <% end %>
+        </div>
+        <%= link_to(orders_path) do %>
+            <hr>
+            <div class="box-head2">Total Failures</div>
+            <div class="box-number"><%= @fail_orders_count %></div>
+            <div class="box-last-sync">
+              <p class="sync">Since</p>
+              <p class="sync-time">
+                <%= @last_since%>
+              </p>
+            </div>
+        <% end %>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-4">
+        <%= link_to(inventory_on_hands_path) do %>
+            <div class="dash-box inventory-box">
+              <div class="">
+                <img src="<%= asset_path 'inventory-card.png' %>">
+                <span class="box-head">Inventory</span>
+              </div>
+        <div class="refresh-sign">
+          <%= link_to(sync_inventory_on_hands_path) do %>
+              <img src="<%= asset_path 'sync.png' %>">
+          <% end %>
+        </div>
+        <%= link_to(inventory_on_hands_path) do %>
+            <hr>
+            <div class="box-head2">Total Failures</div>
+            <div class="box-number"><%= @fail_inventory_count %></div>
+            <div class="box-last-sync">
+              <p class="sync">Since</p>
+              <p class="sync-time">
+                <%= @last_since%>
+              </p>
+            </div>
+        <% end %>
+            </div>
+        <% end %>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-4">
+        <%= link_to(fulfillments_path) do %>
+            <div class="dash-box fulfillment-box">
+              <div class="">
+                <img src="<%= asset_path 'fulfillment-card.png' %>">
+                <span class="box-head">Fulfillments</span>
+              </div>
+              <div class="refresh-sign">
+                <%= link_to(sync_fulfillments_path) do %>
+                <img src="<%= asset_path 'sync.png' %>">
+                    <% end %>
+              </div>
+              <%= link_to(fulfillments_path) do %>
+              <hr>
+              <div class="box-head2">Total Failures</div>
+              <div class="box-number"><%= @fail_fulfillment_count %></div>
+              <div class="box-last-sync">
+                <p class="sync">Since</p>
+                <p class="sync-time">
+                  <%= @last_since%>
+                </p>
+              </div>
+              <% end %>
+            </div>
+        <%end%>
+      </div>
+    </div>
+    <div class="row" style="margin: 15px">
+      <%= line_chart trends_chart_orders_path, colors: ["#ce5511","#005da8","#008b61"] %>
+    </div>
+    <div class="row" style="margin: 15px">
+      <%= column_chart cims_trends_chart_orders_path,colors: ["#ce5511"] %>
+    </div>
+  </div>
+</div>

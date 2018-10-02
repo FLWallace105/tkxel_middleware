@@ -1,0 +1,925 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://webservices.foxfireindia.com/interface" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://webservices.foxfireindia.com/interface" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://webservices.foxfireindia.com/interface">
+      <s:element name="ImportRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlData">
+              <s:complexType>
+                <s:sequence>
+                  <s:any processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ImportRecordResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportRecords">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlData">
+              <s:complexType>
+                <s:sequence>
+                  <s:any processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="XmlResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportRecordsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ImportRecordsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="XmlResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInterfaceFieldDefinition">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="processName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dataSetName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="importFileName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInterfaceFieldDefinitionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInterfaceFieldDefinitionResult" type="tns:ArrayOfInterfaceFieldDefinitionDto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInterfaceFieldDefinitionDto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="InterfaceFieldDefinitionDto" nillable="true" type="tns:InterfaceFieldDefinitionDto" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InterfaceFieldDefinitionDto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FieldName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExternalFieldName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FieldType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FieldWidth" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="Justification" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PadChar" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SortOrder" type="s:short" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SaveExport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="export" type="tns:ExportDto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ExportDto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RecordId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransTypeDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransEntity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransEntityDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransQty" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransDateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProcessedDateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="SKUId" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SKU" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SKU1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SKU2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SKU3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SKU4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SKU5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UoM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UPC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Brand" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SKU_UDF1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SKU_UDF2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SKU_UDF3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SKU_UDF4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SKU_UDF5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SKU_UDF6" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SKU_UDF7" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SKU_UDF8" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SKU_UDF9" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SKU_UDF10" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LPNId" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LPN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LPNType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LPNShipmentId" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LoadId" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ASNCase" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LPN_UDF1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LPN_UDF2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LPN_UDF3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LPN_UDF4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LPN_UDF5" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LPNDetailId" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LPNLine" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Innerpacks" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Quantity" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitsPerPackage" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReceivedUnits" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LPND_UDF1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LPND_UDF2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LPND_UDF3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LPND_UDF4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LPND_UDF5" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LocationId" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Location" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocationType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StorageType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PickingZone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PutawayZone" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReceiptId" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReceiptNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReceiptType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RH_UDF1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RH_UDF2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RH_UDF3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RH_UDF4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RH_UDF5" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReceiptDetailId" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReceiptLine" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="VendorId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoO" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitCost" nillable="true" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="HostReceiptLine" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReasonCode" nillable="true" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="Warehouse" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OwnerShip" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Weight" nillable="true" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Volume" nillable="true" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="RD_UDF1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RD_UDF2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RD_UDF3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RD_UDF4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RD_UDF5" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrderId" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PickTicket" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SalesOrder" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SoldToId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShipToId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShipVia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShipFrom" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustPO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OH_UDF1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OH_UDF2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OH_UDF3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OH_UDF4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OH_UDF5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OH_UDF6" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OH_UDF7" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OH_UDF8" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OH_UDF9" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OH_UDF10" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrderDetailId" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrderLine" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitsOrdered" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitsAuthorizedToShip" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitsAssigned" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitsToAllocate" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RetailUnitPrice" nillable="true" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustSKU" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HostOrderLine" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Reference" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExportBatch" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessUnit" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreatedDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ModifiedDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ModifiedBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OD_UDF1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OD_UDF2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OD_UDF3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OD_UDF4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OD_UDF5" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrevSKUId" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PalletId" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FromWarehouse" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToWarehouse" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lot" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MonetaryValue" nillable="true" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="ShipmentId" nillable="true" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SaveExportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveExportResult" type="tns:ExportDto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllExports">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllExportsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllExportsResult" type="tns:ArrayOfExportDto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfExportDto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ExportDto" nillable="true" type="tns:ExportDto" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ExportRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExportBatch" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="IntegrationType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TransType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Ownership" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SourceSystem" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BusinessUnit" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="XmlData">
+              <s:complexType>
+                <s:sequence>
+                  <s:any processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="XmlResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExportRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExportRecordResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="XmlResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExportOnHandInvetory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Warehouse" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Ownership" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SourceSystem" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SKU" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SKU1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SKU2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SKU3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SKU4" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SKU5" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="OutputZeroQtySKUs" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="BusinessUnit" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="XmlData">
+              <s:complexType>
+                <s:sequence>
+                  <s:any processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="XMLResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExportOnHandInvetoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExportOnHandInvetoryResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="XMLResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExportOnHandInvetoryByOwner">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="integrationType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="businessUnit" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="warehouse" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ownership" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="iterateFlag" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ownershipRecId" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExportOnHandInvetoryByOwnerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExportOnHandInvetoryByOwnerResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ownership" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="iterateFlag" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ownershipRecId" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExportOrders">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SourceSystem" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TargetSystem" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EntityType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BusinessUnit" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderXML">
+              <s:complexType>
+                <s:sequence>
+                  <s:any processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExportOrdersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExportOrdersResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderXML">
+              <s:complexType>
+                <s:sequence>
+                  <s:any processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExportShippedLoads">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TransType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LoadNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BusinessUnit" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="XmlResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExportShippedLoadsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExportShippedLoadsResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="XmlResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExportOpenOrders">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TransType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PickTicket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BusinessUnit" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="XmlResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExportOpenOrdersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExportOpenOrdersResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="XmlResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExportOpenReceipts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TransType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReceiptNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BusinessUnit" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="XmlResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExportOpenReceiptsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExportOpenReceiptsResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="XmlResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExportLMSData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExportBatch" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="BusinessUnit" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="XmlResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExportLMSDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExportLMSDataResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="XmlResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ImportRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:ImportRecord" />
+  </wsdl:message>
+  <wsdl:message name="ImportRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:ImportRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportRecordsSoapIn">
+    <wsdl:part name="parameters" element="tns:ImportRecords" />
+  </wsdl:message>
+  <wsdl:message name="ImportRecordsSoapOut">
+    <wsdl:part name="parameters" element="tns:ImportRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInterfaceFieldDefinitionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInterfaceFieldDefinition" />
+  </wsdl:message>
+  <wsdl:message name="GetInterfaceFieldDefinitionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInterfaceFieldDefinitionResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveExportSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveExport" />
+  </wsdl:message>
+  <wsdl:message name="SaveExportSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveExportResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllExportsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllExports" />
+  </wsdl:message>
+  <wsdl:message name="GetAllExportsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllExportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:ExportRecord" />
+  </wsdl:message>
+  <wsdl:message name="ExportRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:ExportRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportOnHandInvetorySoapIn">
+    <wsdl:part name="parameters" element="tns:ExportOnHandInvetory" />
+  </wsdl:message>
+  <wsdl:message name="ExportOnHandInvetorySoapOut">
+    <wsdl:part name="parameters" element="tns:ExportOnHandInvetoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportOnHandInvetoryByOwnerSoapIn">
+    <wsdl:part name="parameters" element="tns:ExportOnHandInvetoryByOwner" />
+  </wsdl:message>
+  <wsdl:message name="ExportOnHandInvetoryByOwnerSoapOut">
+    <wsdl:part name="parameters" element="tns:ExportOnHandInvetoryByOwnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportOrdersSoapIn">
+    <wsdl:part name="parameters" element="tns:ExportOrders" />
+  </wsdl:message>
+  <wsdl:message name="ExportOrdersSoapOut">
+    <wsdl:part name="parameters" element="tns:ExportOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportShippedLoadsSoapIn">
+    <wsdl:part name="parameters" element="tns:ExportShippedLoads" />
+  </wsdl:message>
+  <wsdl:message name="ExportShippedLoadsSoapOut">
+    <wsdl:part name="parameters" element="tns:ExportShippedLoadsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportOpenOrdersSoapIn">
+    <wsdl:part name="parameters" element="tns:ExportOpenOrders" />
+  </wsdl:message>
+  <wsdl:message name="ExportOpenOrdersSoapOut">
+    <wsdl:part name="parameters" element="tns:ExportOpenOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportOpenReceiptsSoapIn">
+    <wsdl:part name="parameters" element="tns:ExportOpenReceipts" />
+  </wsdl:message>
+  <wsdl:message name="ExportOpenReceiptsSoapOut">
+    <wsdl:part name="parameters" element="tns:ExportOpenReceiptsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportLMSDataSoapIn">
+    <wsdl:part name="parameters" element="tns:ExportLMSData" />
+  </wsdl:message>
+  <wsdl:message name="ExportLMSDataSoapOut">
+    <wsdl:part name="parameters" element="tns:ExportLMSDataResponse" />
+  </wsdl:message>
+  <wsdl:portType name="InterfaceServiceSoap">
+    <wsdl:operation name="ImportRecord">
+      <wsdl:input message="tns:ImportRecordSoapIn" />
+      <wsdl:output message="tns:ImportRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportRecords">
+      <wsdl:input message="tns:ImportRecordsSoapIn" />
+      <wsdl:output message="tns:ImportRecordsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInterfaceFieldDefinition">
+      <wsdl:input message="tns:GetInterfaceFieldDefinitionSoapIn" />
+      <wsdl:output message="tns:GetInterfaceFieldDefinitionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveExport">
+      <wsdl:input message="tns:SaveExportSoapIn" />
+      <wsdl:output message="tns:SaveExportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllExports">
+      <wsdl:input message="tns:GetAllExportsSoapIn" />
+      <wsdl:output message="tns:GetAllExportsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportRecord">
+      <wsdl:input message="tns:ExportRecordSoapIn" />
+      <wsdl:output message="tns:ExportRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportOnHandInvetory">
+      <wsdl:input message="tns:ExportOnHandInvetorySoapIn" />
+      <wsdl:output message="tns:ExportOnHandInvetorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportOnHandInvetoryByOwner">
+      <wsdl:input message="tns:ExportOnHandInvetoryByOwnerSoapIn" />
+      <wsdl:output message="tns:ExportOnHandInvetoryByOwnerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportOrders">
+      <wsdl:input message="tns:ExportOrdersSoapIn" />
+      <wsdl:output message="tns:ExportOrdersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportShippedLoads">
+      <wsdl:input message="tns:ExportShippedLoadsSoapIn" />
+      <wsdl:output message="tns:ExportShippedLoadsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportOpenOrders">
+      <wsdl:input message="tns:ExportOpenOrdersSoapIn" />
+      <wsdl:output message="tns:ExportOpenOrdersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportOpenReceipts">
+      <wsdl:input message="tns:ExportOpenReceiptsSoapIn" />
+      <wsdl:output message="tns:ExportOpenReceiptsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportLMSData">
+      <wsdl:input message="tns:ExportLMSDataSoapIn" />
+      <wsdl:output message="tns:ExportLMSDataSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="InterfaceServiceSoap" type="tns:InterfaceServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ImportRecord">
+      <soap:operation soapAction="http://webservices.foxfireindia.com/interface/ImportRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportRecords">
+      <soap:operation soapAction="http://webservices.foxfireindia.com/interface/ImportRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInterfaceFieldDefinition">
+      <soap:operation soapAction="http://webservices.foxfireindia.com/interface/GetInterfaceFieldDefinition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveExport">
+      <soap:operation soapAction="http://webservices.foxfireindia.com/interface/SaveExport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllExports">
+      <soap:operation soapAction="http://webservices.foxfireindia.com/interface/GetAllExports" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportRecord">
+      <soap:operation soapAction="http://webservices.foxfireindia.com/interface/ExportRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportOnHandInvetory">
+      <soap:operation soapAction="http://webservices.foxfireindia.com/interface/ExportOnHandInvetory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportOnHandInvetoryByOwner">
+      <soap:operation soapAction="http://webservices.foxfireindia.com/interface/ExportOnHandInvetoryByOwner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportOrders">
+      <soap:operation soapAction="http://webservices.foxfireindia.com/interface/ExportOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportShippedLoads">
+      <soap:operation soapAction="http://webservices.foxfireindia.com/interface/ExportShippedLoads" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportOpenOrders">
+      <soap:operation soapAction="http://webservices.foxfireindia.com/interface/ExportOpenOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportOpenReceipts">
+      <soap:operation soapAction="http://webservices.foxfireindia.com/interface/ExportOpenReceipts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportLMSData">
+      <soap:operation soapAction="http://webservices.foxfireindia.com/interface/ExportLMSData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="InterfaceServiceSoap12" type="tns:InterfaceServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ImportRecord">
+      <soap12:operation soapAction="http://webservices.foxfireindia.com/interface/ImportRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportRecords">
+      <soap12:operation soapAction="http://webservices.foxfireindia.com/interface/ImportRecords" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInterfaceFieldDefinition">
+      <soap12:operation soapAction="http://webservices.foxfireindia.com/interface/GetInterfaceFieldDefinition" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveExport">
+      <soap12:operation soapAction="http://webservices.foxfireindia.com/interface/SaveExport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllExports">
+      <soap12:operation soapAction="http://webservices.foxfireindia.com/interface/GetAllExports" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportRecord">
+      <soap12:operation soapAction="http://webservices.foxfireindia.com/interface/ExportRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportOnHandInvetory">
+      <soap12:operation soapAction="http://webservices.foxfireindia.com/interface/ExportOnHandInvetory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportOnHandInvetoryByOwner">
+      <soap12:operation soapAction="http://webservices.foxfireindia.com/interface/ExportOnHandInvetoryByOwner" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportOrders">
+      <soap12:operation soapAction="http://webservices.foxfireindia.com/interface/ExportOrders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportShippedLoads">
+      <soap12:operation soapAction="http://webservices.foxfireindia.com/interface/ExportShippedLoads" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportOpenOrders">
+      <soap12:operation soapAction="http://webservices.foxfireindia.com/interface/ExportOpenOrders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportOpenReceipts">
+      <soap12:operation soapAction="http://webservices.foxfireindia.com/interface/ExportOpenReceipts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportLMSData">
+      <soap12:operation soapAction="http://webservices.foxfireindia.com/interface/ExportLMSData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="InterfaceService">
+    <wsdl:port name="InterfaceServiceSoap" binding="tns:InterfaceServiceSoap">
+      <soap:address location="http://69.178.153.83:8081/CIMS.Interface/InterfaceService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="InterfaceServiceSoap12" binding="tns:InterfaceServiceSoap12">
+      <soap12:address location="http://69.178.153.83:8081/CIMS.Interface/InterfaceService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

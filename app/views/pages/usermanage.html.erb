@@ -1,0 +1,165 @@
+
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6 pull-left">
+            <input type="text" id="" placeholder="Search" class="search-order">
+          </div>
+          <div class="col-md-6 align-filter">
+            <div class="dropdown">
+              <button class="btn2 btn-success2 add-btn" onclick="document.getElementById('id01').style.display='block'" style="width:auto;" type="button">+Add
+                </button>
+
+            </div>
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="col-md-12 user-div">
+            <div class="card">
+
+              <div class="">
+                <div role="" class="" id="all">
+                  <div class="user-listing">
+                    <div class="user-heading">
+                      <div class="user-id">User ID</div>
+                      <div class="name">Name</div>
+                      <div class="email">Email</div>
+                      <div class="brand">Brand</div>
+                      <div class="ex-col">Column</div>
+                      <div class="ex-col">Column</div>
+                      <div class="action">Action</div>
+                    </div>
+                    <div class="user-detail">
+                      <div class="user-id">123</div>
+                      <div class="name">Test Name</div>
+                      <div class="email">test@gmail.com</div>
+                      <div class="brand">Marika</div>
+                      <div class="ex-col">Column</div>
+                      <div class="ex-col">Column</div>
+                      <div class="action"><a href="#"><img src="<%= asset_path 'edit.png' %>"></a> <a href="#"><img src="<%= asset_path 'delete.png' %>"></a></div>
+                    </div>
+                    <div class="user-detail">
+                      <div class="user-id">123</div>
+                      <div class="name">Test Name</div>
+                      <div class="email">test@gmail.com</div>
+                      <div class="brand">Marika</div>
+                      <div class="ex-col">Column</div>
+                      <div class="ex-col">Column</div>
+                      <div class="action"><a href="#"><img src="<%= asset_path 'edit.png' %>"></a> <a href="#"><img src="<%= asset_path 'delete.png' %>"></a></div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div id="id01" class="modal">
+      <div class="container">
+        <div class="row centered-form">
+          <div class=" col-sm-offset-2 col-md-offset-4">
+            <div class="panel panel-default user-register-panel">
+              <div class="panel-heading">
+                <h3 class="panel-title">INVITE NEW USER</h3>
+              </div>
+              <div class="panel-body">
+                <form role="form">
+                  <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                      <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" name="full_name" id="full_name" class="form-control input-sm" placeholder="">
+                      </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                      <div class="form-group">
+                        <label>Email ID</label>
+                        <input type="email" name="email" id="email" class="form-control input-sm" placeholder="">
+                      </div>
+                    </div>
+                  </div>
+<!--
+
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                      <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" name="password" id="password" class="form-control input-sm" placeholder="">
+                      </div>
+                    </div>
+
+                  </div>-->
+
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                      <div class="form-group">
+                        <label>Brand</label>
+                      </div>
+
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-2 brnd-checkbox">
+                      <div class="checkbox checkbox-warning" id="remember">
+                        <input id="" type="checkbox" checked="">
+                        <label class="ellie" for="">
+                          Ellie
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-2 brnd-checkbox">
+                      <div class="checkbox checkbox-warning" id="remember">
+                        <input id="" type="checkbox" checked="">
+                        <label class="zobha" for="">
+                          Zobha
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-2 brnd-checkbox">
+                      <div class="checkbox checkbox-warning" id="remember">
+                        <input id="" type="checkbox" checked="">
+                        <label class="marika" for="">
+                          Marika
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-xs-4 col-sm-4 col-md-4">
+
+                  </div>
+                  <div class="col-xs-8 col-sm-8 col-md-8">
+                    <div class="col-xs-7 col-sm-7 col-md-7">
+                      <input type="button" onclick="cancel()" value="Cancel" class="cancel-btn">
+                    </div>
+                    <div class="col-xs-5 col-sm-5 col-md-5">
+                        <input type="submit" value="Save" class="save-btn">
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        function cancel() {
+            modal.style.display = "none";
+        }
+    </script>
+

@@ -1,0 +1,10 @@
+# Add configuration values here, as shown below.
+
+#sample store configurations
+
+fambrands_shop_name: "fambrands-dev"
+fambrands_api_key: "86f5e6b9321bc6b2c9e7a6d4a5b49e03"
+fambrands_password: "58e6f2c572875fcca889e8492763ca2b"
+fambrands_api_secret: "19e8af5dbec6b7929f62ac5c36d0fa04"
+gmail_username: "email"
+gmail_password: "password"

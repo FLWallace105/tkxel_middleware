@@ -1,0 +1,8 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://webservices.foxfireindia.com/interface">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <int:ExportOnHandInvetory>
+         <int:Warehouse>el</int:Warehouse>
+      </int:ExportOnHandInvetory>
+   </soapenv:Body>
+</soapenv:Envelope>

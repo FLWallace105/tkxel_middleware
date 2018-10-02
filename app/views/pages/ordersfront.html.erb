@@ -1,0 +1,202 @@
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8 pull-left">
+        <input type="text" id="" placeholder="Search" class="search-order">
+      </div>
+      <div class="col-md-4 align-filter">
+        <div class="dropdown">
+          <button class="btn filter-btn dropdown-toggle" type="button" data-toggle="dropdown">FILTERS
+            <img class="drp-arrow-down active" src="<%= asset_path 'dropdown-arrow.png' %>">
+            <img class="drp-arrow-up" src="<%= asset_path 'dropdown_arrow_close.png' %>"></button>
+
+          <div class="container dropdown-menu filter-row">
+            <div class="row">
+              <div class="dropdown-main-div">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <form role="form">
+                      <div class="row">
+                        <span><h4 class="filter-heading">DATE</h4> </span>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="form-group dropdown-input">
+                            <label>From</label>
+                            <input type="text" name="" id="" class="datetimepicker form-control input-sm" placeholder="">
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="form-group dropdown-input">
+                            <label>To</label>
+                            <input type="text" name="" id="" class="datetimepicker form-control input-sm" placeholder="">
+                          </div>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <span><h4 class="filter-heading">Source</h4> </span>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="checkbox checkbox-warning" id="remember">
+                            <input id="" type="checkbox" checked="">
+                            <label class="remember" for="remember_me">
+                              WebHook
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="checkbox checkbox-warning" id="remember">
+                            <input id="" type="checkbox" checked="">
+                            <label class="remember" for="remember_me">
+                              BackgrounJob
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="checkbox checkbox-warning" id="remember">
+                            <input id="" type="checkbox" checked="">
+                            <label class="remember" for="remember_me">
+                              Manual
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <span ><h4 class="filter-heading">Status</h4> </span>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="checkbox checkbox-warning" id="remember">
+                            <input id="" type="checkbox" checked="">
+                            <label class="remember" for="remember_me">
+                              Fullfilled
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="checkbox checkbox-warning" id="remember">
+                            <input id="" type="checkbox" checked="">
+                            <label class="remember" for="remember_me">
+                              Pushed To CIMS
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row filter-btn-div">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <input type="submit" class="btn filter-btn-apply" value="Apply" type="button" >
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 reset-btn-div">
+                          <a class="reset-btn" href="">Reset</a>
+                        </div>
+                      </div>
+
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--              <ul class="dropdown-menu">
+                          <li><a href="#">HTML</a></li>
+                          <li><a href="#">CSS</a></li>
+                          <li><a href="#">JavaScript</a></li>
+                        </ul>-->
+        </div>
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-md-12 order-div">
+        <!-- Nav tabs -->
+        <div class="card">
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active order-tab">
+              <a class="tabs" href="#all" aria-controls="all" role="tab" data-toggle="tab">All</a></li>
+            <li role="presentation">
+              <a class="tabs" href="#failures" aria-controls="failures" role="tab" data-toggle="tab">Failures</a></li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="all">
+              <div class="order-listing">
+                <div class="order-heading">
+                  <div class="id">Order ID</div>
+                  <div class="time">Date & Time</div>
+                  <div class="brand">Brand</div>
+                  <div class="source">Source</div>
+                  <div class="status">Status</div>
+                </div>
+
+                <div class="order-detail">
+                  <div class="id">8974521</div>
+                  <div class="time">Apr 10, 2018 - 18:00</div>
+                  <div class="brand">Ellie</div>
+                  <div class="source">WebHook</div>
+                  <div class="status">Pushed to CIMS</div>
+                </div>
+
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="failures">
+                <div class="order-listing">
+                  <div class="order-heading">
+                    <div class="id">Orderss ID</div>
+                    <div class="time">Date & Time</div>
+                    <div class="brand">Brand</div>
+                    <div class="source">Source</div>
+                    <div class="status">Status</div>
+                  </div>
+                  <div class="order-detail">
+                    <div class="id">8974521</div>
+                    <div class="time">Apr 10, 2018 - 18:00</div>
+                    <div class="brand">Ellie</div>
+                    <div class="source">WebHook</div>
+                    <div class="status">Pushed to CIMS</div>
+                  </div>
+                  <div class="order-detail">
+                    <div class="id">8974521</div>
+                    <div class="time">Apr 10, 2018 - 18:00</div>
+                    <div class="brand">Zobha</div>
+                    <div class="source">Background Job</div>
+                    <div class="status">Fulfilled</div>
+                  </div>
+                  <div class="order-detail">
+                    <div class="id">8974521</div>
+                    <div class="time">Apr 10, 2018 - 18:00</div>
+                    <div class="brand">Ellie</div>
+                    <div class="source">Manual</div>
+                    <div class="status">Fulfilled</div>
+                  </div>
+                  <div class="order-detail">
+                    <div class="id">8974521</div>
+                    <div class="time">Apr 10, 2018 - 18:00</div>
+                    <div class="brand">Marika</div>
+                    <div class="source">WebHook</div>
+                    <div class="status">Pushed to CIMS</div>
+                  </div>
+                  <div class="order-detail">
+                    <div class="id">8974521</div>
+                    <div class="time">Apr 10, 2018 - 18:00</div>
+                    <div class="brand">Zobha</div>
+                    <div class="source">Background Job</div>
+                    <div class="status">failed</div>
+                  </div>
+                  <div class="order-detail">
+                    <div class="id">8974521</div>
+                    <div class="time">Apr 10, 2018 - 18:00</div>
+                    <div class="brand">Zobha</div>
+                    <div class="source">Background Job</div>
+                    <div class="status">failed</div>
+                  </div>
+
+
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

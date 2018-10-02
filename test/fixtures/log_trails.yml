@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  logtrailable: one
+  logtrailable_type: Logtrailable
+  action_type: 
+  recurring_tries: 
+  status: 
+  headline: MyText
+  brand: one
+  trigger_type: 
+  log_file: MyText
+
+two:
+  logtrailable: two
+  logtrailable_type: Logtrailable
+  action_type: 
+  recurring_tries: 
+  status: 
+  headline: MyText
+  brand: two
+  trigger_type: 
+  log_file: MyText

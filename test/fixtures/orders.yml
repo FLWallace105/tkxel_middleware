@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  order_detail: MyText
+  source: MyString
+  brand: one
+  tracking_id: MyString
+  status: 
+  price: 9.99
+  customer_name: MyString
+  payment_address: MyText
+  shiping_address: MyText
+
+two:
+  name: MyString
+  order_detail: MyText
+  source: MyString
+  brand: two
+  tracking_id: MyString
+  status: 
+  price: 9.99
+  customer_name: MyString
+  payment_address: MyText
+  shiping_address: MyText

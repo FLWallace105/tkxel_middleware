@@ -1,0 +1,26 @@
+<div class="container bg-1 text-center landing " xmlns="http://www.w3.org/1999/html">
+  <div class="background-div">
+    <div class="logo-container">
+      <div class="">
+        <div class="card card-container">
+          <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+          <img id="logo-img" class="logo-img-card" src="<%= asset_path 'logo.png' %>"/>
+          <p id="logo-name" class="logo-name-card">Forget Password</p>
+          <% if resource.errors.any? %>
+              <div class="alert alert-danger">
+                <strong>Alert!</strong> <%= resource.errors.full_messages.join(',') %>
+              </div>
+          <% end %>
+          <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post , class: 'form-signin' }) do |f| %>
+            <span id="reauth-email" class="reauth-email"></span>
+            <label>Email </label>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" , class: 'login-field form-control' , id: 'inputEmail' , placeholder: "xyz@example.com", required: true   %>
+              <%= f.submit "Send Instructions" , class: "btn btn-lg btn-primary btn-block btn-signin" %>
+          <% end %><!-- /form -->
+        </div><!-- /card-container -->
+      </div><!-- /container -->
+    </div>
+    <span class="footer-text">Powered by Fam Brands</span>
+  </div>
+
+</div>

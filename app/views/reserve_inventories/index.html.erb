@@ -1,0 +1,159 @@
+
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+
+      <%if flash[:notice]  && flash[:notice].include?("Inventory")%>
+          <div class="pull-left">
+            <h6 class="notice-text">Info! <%=flash[:notice]%></h6>
+          </div>
+      <%end%>
+      <div class="col-md-8 align-filter pull-right">
+        <div class="dropdown">
+          <!--<button class="btn filter-btn dropdown-toggle" type="button" data-toggle="dropdown">FILTERS-->
+          <!--<img class="drp-arrow-down active" src="<%= asset_path 'dropdown-arrow.png' %>">-->
+          <!--<img class="drp-arrow-up" src="<%= asset_path 'dropdown_arrow_close.png' %>">-->
+          <!--</button>-->
+          <%= link_to '<button type="button" class="btn2 btn-success2 add-btn sync-btn">Reserve Inventory</button>'.html_safe, reserve_inventory_reserve_inventories_path %>
+          <%= link_to '<button type="button" class="btn2 btn-success2 add-btn sync-btn">Create Products</button>'.html_safe, products_path %>
+          <div class="container dropdown-menu filter-row">
+            <div class="row">
+              <div class="dropdown-main-div">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <form role="form">
+                      <div class="row">
+                        <span><h4 class="filter-heading">DATE</h4> </span>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="form-group dropdown-input">
+                            <label>From</label>
+                            <input type="text" name="" id="" class="datetimepicker form-control input-sm" placeholder="">
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="form-group dropdown-input">
+                            <label>To</label>
+                            <input type="text" name="" id="" class="datetimepicker form-control input-sm" placeholder="">
+                          </div>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <span><h4 class="filter-heading">Source</h4> </span>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="checkbox checkbox-warning" id="remember">
+                            <input id="" type="checkbox" checked="">
+                            <label class="remember" for="remember_me">
+                              WebHook
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="checkbox checkbox-warning" id="remember">
+                            <input id="" type="checkbox" checked="">
+                            <label class="remember" for="remember_me">
+                              BackgrounJob
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="checkbox checkbox-warning" id="remember">
+                            <input id="" type="checkbox" checked="">
+                            <label class="remember" for="remember_me">
+                              Manual
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <span><h4 class="filter-heading">Status</h4> </span>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="checkbox checkbox-warning" id="remember">
+                            <input id="" type="checkbox" checked="">
+                            <label class="remember" for="remember_me">
+                              Fullfilled
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="checkbox checkbox-warning" id="remember">
+                            <input id="" type="checkbox" checked="">
+                            <label class="remember" for="remember_me">
+                              Pushed To CMS
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row filter-btn-div">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <input type="submit" class="btn filter-btn-apply" value="Apply" type="button">
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 reset-btn-div">
+                          <a class="reset-btn" href="">Reset</a>
+                        </div>
+                      </div>
+
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-md-12 order-div">
+        <!-- Nav tabs -->
+        <div class="card">
+          <!--<ul class="nav nav-tabs" role="tablist">-->
+          <!--<li role="presentation" class="active order-tab">-->
+          <!--<a class="tabs" href="#all" aria-controls="all" role="tab" data-toggle="tab">All</a></li>-->
+          <!--</ul>-->
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active">
+              <div class="inventory-listing">
+                <div class="inventory-heading">
+                  <div class="product-id">Collection Name</div>
+                  <div class="from">Product SKU</div>
+                  <div class="brand">Product Type</div>
+                  <div class="shopify">Size</div>
+                  <div class="adjustment">Count</div>
+                  <div class="cims">Delivered Count</div>
+                  <div class="cims">Variant sku</div>
+                  <!--<div class="cims">Product id</div>-->
+                  <div class="last-update">Calculated at</div>
+                </div>
+                <% @reserve_inventories.each do |inventory| %>
+                    <div class="inventory-detail">
+                      <div class="product-id"><%=inventory.collection_name%></div>
+                      <div class="from"><%=inventory.product_id%></div>
+                      <div class="brand"><%=inventory.product_type.upcase%></div>
+                      <div class="shopify"><%=inventory.size.upcase%></div>
+                      <div class="adjustment"><%=inventory.size_count%></div>
+                      <div class="cims"><%=inventory.delivered_count%></div>
+                      <div class="cims"><%=inventory.variant_sku%></div>
+                      <!--<div class="cims"><%#=inventory.product_id%></div>-->
+                      <div class="last-update"><%= format_date_time(inventory.created_at) %></div>
+                    </div>
+                <% end %>
+              </div>
+
+            </div>
+            <div class="pagination-div">
+              <%= will_paginate @reserve_inventories %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

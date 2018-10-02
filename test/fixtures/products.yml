@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sku: MyString
+  default: false
+  product_date: 2018-05-21
+
+two:
+  sku: MyString
+  default: false
+  product_date: 2018-05-21

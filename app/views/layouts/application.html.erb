@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<%= if current_user.present?
+   render 'layouts/header'
+   else
+   render 'layouts/header_login'
+   end %>
+<body>
+<%= if current_user.present?
+      render 'layouts/dashboard'
+    else
+      render 'layouts/login'
+    end %>
+</body>
+<%= render 'layouts/footer' %>
+</html>

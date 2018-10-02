@@ -1,0 +1,32 @@
+<div class="container bg-1 text-center landing " xmlns="http://www.w3.org/1999/html">
+  <div class="background-div">
+    <div class="logo-container">
+      <div class="">
+        <div class="card card-container">
+          <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+          <img id="logo-img" class="logo-img-card" src="<%= asset_path 'logo.png' %>"/>
+          <p id="logo-name" class="logo-name-card">LOGIN TO ADMIN PANEL</p>
+          <form class="form-signin">
+            <span id="reauth-email" class="reauth-email"></span>
+            <label>Email </label>
+            <input type="email" id="inputEmail" class="login-field form-control" placeholder="" required autofocus>
+            <label>Password</label>
+            <input type="password" id="inputPassword" class="login-field form-control" placeholder="" required>
+            <div class="checkbox checkbox-warning" id="remember">
+              <input id="remember_me" type="checkbox" checked="">
+              <label class="remember" for="remember_me">
+                Remember me
+              </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Login</button>
+          </form><!-- /form -->
+          <a href="#" class="forgot-password">
+            Forgot Password?
+          </a>
+        </div><!-- /card-container -->
+      </div><!-- /container -->
+    </div>
+    <span class="footer-text">Powered by Fam Brands</span>
+  </div>
+
+</div>
